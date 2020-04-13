@@ -29,18 +29,14 @@ public class FlavorSlideShow : MonoBehaviour
         time += Time.deltaTime;
         if(time >= 1f)
         {
-            shiftTrigger = true;
-            time -= 1;
-        }
-
-        if(shiftTrigger == true)
-        {
             flavor[counter++].SetActive(false); // disable current (counter) object and increment counter
 
             if (counter == flavorCount) counter = 0; // if current counter equals flavorCount size, change counter value to zero
             flavor[counter].SetActive(true); // enable current (counter) object
 
             shiftTrigger = false; // change shiftTrigger value to false
+
+            time -= 1;
         }
     }
 }
