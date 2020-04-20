@@ -7,14 +7,25 @@ public class MenuSelection : MonoBehaviour
     /*
      * Note:
      * In this project, flavor elements must be in this order:
-     * Element 1: Chocolate
-     *         2: Vanilla
-     *         3: Strawberry
-     *         4: Blueberry
-     *         5: GreenTea
-     *         6: Mint
-     *         7: Lemon
-     *         8: Coffee
+     * Element 0: Chocolate
+     *         1: Vanilla
+     *         2: Strawberry
+     *         3: Blueberry
+     *         4: GreenTea
+     *         5: Mint
+     *         6: Lemon
+     *         7: Coffee
+     * For temperature elements order:
+     * Element 0: Hot
+     *         1: Cold
+     * And for topping elements order:
+     * Element 0: NoTopping
+     *         1: IceCube
+     *         2: Boba
+     *         3: Sprinkles
+     *         4: Oreo
+     *         5: WhipCream
+     *         6: ChocolateSyrup
      */
 
     public int insertedMoney;
