@@ -2577,7 +2577,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &819375448
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4730,13 +4730,14 @@ GameObject:
   - component: {fileID: 1736004054}
   - component: {fileID: 1736004056}
   - component: {fileID: 1736004055}
+  - component: {fileID: 1736004057}
   m_Layer: 0
   m_Name: TempSelect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1736004054
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4794,6 +4795,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1736004053}
   m_CullTransparentMesh: 0
+--- !u!114 &1736004057
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1736004053}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d158cb2fd40f936479f1a4ffb13daae0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  temps:
+  - {fileID: 1641307101}
+  - {fileID: 1958988334}
+  thisPage: {fileID: 1736004053}
+  nextPage: {fileID: 81904938}
 --- !u!1 &1774758700
 GameObject:
   m_ObjectHideFlags: 0
