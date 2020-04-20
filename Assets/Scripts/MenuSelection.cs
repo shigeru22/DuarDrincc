@@ -21,4 +21,6 @@ public class MenuSelection : MonoBehaviour
     public int selectedFlavor;
     public int selectedTemp;
     public int selectedTopping;
+
+    // later, switch to private and use methods to change values instead
 }
