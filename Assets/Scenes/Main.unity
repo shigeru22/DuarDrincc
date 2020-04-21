@@ -252,7 +252,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &81904939
 RectTransform:
   m_ObjectHideFlags: 0
@@ -937,13 +937,14 @@ GameObject:
   - component: {fileID: 303212165}
   - component: {fileID: 303212167}
   - component: {fileID: 303212166}
+  - component: {fileID: 303212168}
   m_Layer: 0
   m_Name: InsertMoney
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &303212165
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1000,6 +1001,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 303212164}
   m_CullTransparentMesh: 0
+--- !u!114 &303212168
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 303212164}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3fe06d15423db6429833d6f3ec5b108, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thisPage: {fileID: 303212164}
+  nextPage: {fileID: 819375447}
 --- !u!1 &305779467
 GameObject:
   m_ObjectHideFlags: 0
