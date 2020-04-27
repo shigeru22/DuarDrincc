@@ -32,4 +32,5 @@ public class MenuSelection : MonoBehaviour
     public int selectedFlavor;
     public int selectedTemp;
     public int selectedTopping;
+    public bool startAnimation;
 }
