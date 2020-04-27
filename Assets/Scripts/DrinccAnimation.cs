@@ -44,13 +44,13 @@ public class DrinccAnimation : MonoBehaviour
                 }
                 targetPath += "/";
 
-                initial = true;
-            }
+                for (int i = 0; i < animationSprite.Length; i++)
+                {
+                    string target = targetPath + flavors[store.selectedFlavor].ToLower() + "-" + i + ".png";
+                    animationSprite[i].sprite = (Sprite)UnityEditor.AssetDatabase.LoadAssetAtPath(target, typeof(Sprite));
+                }
 
-            for(int i = 0; i < animationSprite.Length; i++)
-            {
-                string target = targetPath + flavors[store.selectedFlavor].ToLower() + "-" + i + ".png";
-                animationSprite[i].sprite = (Sprite)UnityEditor.AssetDatabase.LoadAssetAtPath(target, typeof(Sprite));
+                initial = true;
             }
 
             // animation per deltaTime
