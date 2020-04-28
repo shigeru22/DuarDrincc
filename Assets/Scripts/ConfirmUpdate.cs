@@ -32,6 +32,7 @@ public class ConfirmUpdate : MonoBehaviour
         store = GameObject.FindGameObjectWithTag("SelectedStore").GetComponent<MenuSelection>();
 
         backButton.onClick.AddListener(BackPageClick);
+        buyButton.onClick.AddListener(StartProcess);
     }
 
     void Update()
@@ -128,5 +129,10 @@ public class ConfirmUpdate : MonoBehaviour
     {
         thisPage.SetActive(false);
         prevPage.SetActive(true);
+    }
+
+    void StartProcess()
+    {
+        store.startAnimation = true;
     }
 }
