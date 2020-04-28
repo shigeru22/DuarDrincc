@@ -46,7 +46,7 @@ public class ConfirmUpdate : MonoBehaviour
     void PageUpdate()
     {
         // Debug.Log("Flavor: " + store.selectedFlavor + ", temp: " + store.selectedTemp + ", topping: " + store.selectedTopping);
-        Debug.Log("Balance: " + store.insertedMoney.ToString("#,.##0"));
+        // Debug.Log("Balance: " + store.insertedMoney.ToString("#,.##0"));
 
         remainingBalance.text = store.insertedMoney.ToString("#,.##0");
 
@@ -126,7 +126,6 @@ public class ConfirmUpdate : MonoBehaviour
 
     void BackPageClick()
     {
-        Debug.Log("Clicked");
         thisPage.SetActive(false);
         prevPage.SetActive(true);
     }
