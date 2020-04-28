@@ -15,9 +15,6 @@ public class ConfirmUpdate : MonoBehaviour
     public GameObject[] flavorInfo;
     public GameObject[] toppingInfo;
 
-    // money object for buttons
-    public Button[] money;
-
     public Text remainingBalance;
     public Text toppingPrice;
     public Text totalPrice;
@@ -34,8 +31,6 @@ public class ConfirmUpdate : MonoBehaviour
     {
         store = GameObject.FindGameObjectWithTag("SelectedStore").GetComponent<MenuSelection>();
 
-        // for (int i = 0; i < previousButtons.Length; i++) previousButtons[i].onClick.AddListener(PageUpdate);
-        for (int i = 0; i < money.Length; i++) money[i].onClick.AddListener(UpdateBuyButtons);
         backButton.onClick.AddListener(BackPageClick);
     }
 
@@ -131,6 +126,7 @@ public class ConfirmUpdate : MonoBehaviour
 
     void BackPageClick()
     {
+        Debug.Log("Clicked");
         thisPage.SetActive(false);
         prevPage.SetActive(true);
     }
