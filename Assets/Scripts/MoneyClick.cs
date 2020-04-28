@@ -11,6 +11,7 @@ public class MoneyClick : MonoBehaviour
     public Button sepuluhRibu;
 
     MenuSelection store;
+    public GameObject confirmationPage;
 
     void Start()
     {
@@ -26,5 +27,6 @@ public class MoneyClick : MonoBehaviour
     void addMoney(int amount)
     {
         store.insertedMoney += amount;
+        if(confirmationPage.activeSelf) confirmationPage.GetComponent<ConfirmUpdate>().update = true;
     }
 }

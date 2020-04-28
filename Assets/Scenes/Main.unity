@@ -778,13 +778,14 @@ GameObject:
   - component: {fileID: 200359654}
   - component: {fileID: 200359656}
   - component: {fileID: 200359655}
+  - component: {fileID: 200359657}
   m_Layer: 0
   m_Name: Confirmation
-  m_TagString: Untagged
+  m_TagString: UpdateTrigger
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &200359654
 RectTransform:
   m_ObjectHideFlags: 0
@@ -852,6 +853,61 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 200359653}
   m_CullTransparentMesh: 0
+--- !u!114 &200359657
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 200359653}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6efd266bde68c3748ba5eb47a97a5587, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buyButton: {fileID: 2103777269}
+  insuffientBalance: {fileID: 985468450}
+  flavorImg:
+  - {fileID: 1769608274}
+  - {fileID: 682531889}
+  - {fileID: 560730448}
+  - {fileID: 1780575668}
+  - {fileID: 988541291}
+  - {fileID: 1271277141}
+  - {fileID: 464605009}
+  - {fileID: 1580357031}
+  tempInfo:
+  - {fileID: 1129067769}
+  - {fileID: 831450352}
+  flavorInfo:
+  - {fileID: 1857011049}
+  - {fileID: 1108362947}
+  - {fileID: 938884567}
+  - {fileID: 1814214937}
+  - {fileID: 461802751}
+  - {fileID: 1116748977}
+  - {fileID: 1801384580}
+  - {fileID: 819541048}
+  toppingInfo:
+  - {fileID: 1830017896}
+  - {fileID: 1264991505}
+  - {fileID: 1935398543}
+  - {fileID: 399120692}
+  - {fileID: 1182427941}
+  - {fileID: 1839714095}
+  - {fileID: 946565901}
+  money:
+  - {fileID: 877922634}
+  - {fileID: 1471409426}
+  - {fileID: 1974914671}
+  - {fileID: 1968693170}
+  remainingBalance: {fileID: 1065482724}
+  toppingPrice: {fileID: 669102279}
+  totalPrice: {fileID: 378346551}
+  backButton: {fileID: 489646319}
+  thisPage: {fileID: 200359653}
+  prevPage: {fileID: 81904938}
+  update: 0
 --- !u!1 &233437510
 GameObject:
   m_ObjectHideFlags: 0
@@ -1170,7 +1226,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &303212165
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1701,7 +1757,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 0,00
+  m_Text: 10.000,00
 --- !u!222 &378346552
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -11173,6 +11229,7 @@ MonoBehaviour:
   duaRibu: {fileID: 1471409426}
   limaRibu: {fileID: 1974914671}
   sepuluhRibu: {fileID: 1968693170}
+  confirmationPage: {fileID: 200359653}
 --- !u!1 &2103777265
 GameObject:
   m_ObjectHideFlags: 0
@@ -11184,6 +11241,7 @@ GameObject:
   - component: {fileID: 2103777266}
   - component: {fileID: 2103777268}
   - component: {fileID: 2103777267}
+  - component: {fileID: 2103777269}
   m_Layer: 0
   m_Name: BuyButton
   m_TagString: Untagged
@@ -11246,6 +11304,49 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2103777265}
   m_CullTransparentMesh: 0
+--- !u!114 &2103777269
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2103777265}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 0
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 2103777267}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &2112918477
 GameObject:
   m_ObjectHideFlags: 0
