@@ -11029,10 +11029,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 964662e009dce694b9cc0f6da04d802c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  seribu: {fileID: 0}
-  duaRibu: {fileID: 0}
+  windowAnimator: {fileID: 194615175}
   limaRibu: {fileID: 1974914671}
   sepuluhRibu: {fileID: 1968693170}
+  duaPuluhRibu: {fileID: 77293990}
   confirmationPage: {fileID: 200359653}
 --- !u!1 &2103777265
 GameObject:

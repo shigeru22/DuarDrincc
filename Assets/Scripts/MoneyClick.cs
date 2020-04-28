@@ -5,10 +5,11 @@ using UnityEngine.UI;
 
 public class MoneyClick : MonoBehaviour
 {
-    public Button seribu;
-    public Button duaRibu;
+    public Animator windowAnimator;
+
     public Button limaRibu;
     public Button sepuluhRibu;
+    public Button duaPuluhRibu;
 
     MenuSelection store;
     public GameObject confirmationPage;
@@ -18,10 +19,9 @@ public class MoneyClick : MonoBehaviour
         store = GameObject.FindGameObjectWithTag("SelectedStore").GetComponent<MenuSelection>();
 
         // money listener
-        seribu.onClick.AddListener(delegate { addMoney(1000); });
-        duaRibu.onClick.AddListener(delegate { addMoney(2000); });
-        limaRibu.onClick.AddListener(delegate { addMoney(5000); });
-        sepuluhRibu.onClick.AddListener(delegate { addMoney(10000); });
+        limaRibu.onClick.AddListener(delegate { addMoney(5000); windowAnimator.SetTrigger("5KInserted"); });
+        sepuluhRibu.onClick.AddListener(delegate { addMoney(10000); windowAnimator.SetTrigger("10KInserted"); });
+        duaPuluhRibu.onClick.AddListener(delegate { addMoney(20000); windowAnimator.SetTrigger("20KInserted"); });
     }
 
     void addMoney(int amount)
