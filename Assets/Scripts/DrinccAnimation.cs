@@ -5,7 +5,8 @@ using UnityEngine.UI;
 
 public class DrinccAnimation : MonoBehaviour
 {
-    public Image[] animationSprite;
+    public GameObject mainObject; // set to DrinccObject
+    public GameObject[] animationSprite; // set to 8 and set elements to each Drincc-* object
 
     MenuSelection store;
 
@@ -18,6 +19,11 @@ public class DrinccAnimation : MonoBehaviour
     bool initial;
     bool only7frames;
 
+    int run;
+    float time;
+    int activeObject;
+    int frameCounter;
+
     void Start()
     {
         store = GameObject.FindGameObjectWithTag("SelectedStore").GetComponent<MenuSelection>();
@@ -25,13 +31,20 @@ public class DrinccAnimation : MonoBehaviour
         // for file access
         flavors = new string[8]{ "Chocolate", "Milk", "Strawberry", "Blueberry", "GreenTea", "Mint", "Lemon", "Coffee" };
         temps = new string[2]{"no-ice", "ice"};
-        toppings = new string[7]{"no-topping", "ice", "boba", "sprinkles", "oreo", "whipcream", "chocolate-syrup"};
+        toppings = new string[7]{"no-topping", "ice", "boba", "sparkles", "oreo", "whipcream", "chocolate-syrup"};
+
         initial = false;
         only7frames = false;
+
+        run = 0;
+        time = 0;
+        activeObject = 0;
+        frameCounter = 0;
     }
 
     void Update()
     {
+        // i know it's inefficient, but this method is far easier than using animator
         if(store.startAnimation == true)
         {
             if(initial == false)
@@ -52,19 +65,67 @@ public class DrinccAnimation : MonoBehaviour
                 for (int i = 0; i < animationSprite.Length; i++)
                 {
                     string target = targetPath + flavors[store.selectedFlavor].ToLower() + "-" + i + ".png";
-                    animationSprite[i].sprite = (Sprite)UnityEditor.AssetDatabase.LoadAssetAtPath(target, typeof(Sprite));
+                    animationSprite[i].GetComponent<Image>().sprite = (Sprite)UnityEditor.AssetDatabase.LoadAssetAtPath(target, typeof(Sprite));
 
-                    if (only7frames == true && i == 6)
-                    {
-                        Debug.Log("Yeah, it's 6 frames");
-                        break;
-                    }
+                    if (only7frames == true && i == 6) break;
                 }
 
                 initial = true;
             }
+            else
+            {
+                if (run == 0)
+                {
+                    mainObject.SetActive(true);
+                    for (int i = 0; i < animationSprite.Length; i++)
+                    {
+                        if (i == 0) animationSprite[i].SetActive(true);
+                        else animationSprite[i].SetActive(false);
+                    }
 
-            // animation per deltaTime
+                    run++;
+                }
+                else if (run == 1)
+                {
+                    time += Time.deltaTime;
+
+                    if (time > 3f)
+                    {
+                        run++;
+                        time = 0;
+                    }
+                }
+                else if (run == 2)
+                {
+                    time += Time.deltaTime;
+
+                    if (time / 0.5f > 1)
+                    {
+                        IncrementAnimation();
+                        frameCounter++;
+                        time -= 0.5f;
+
+                        if (frameCounter == 6 & only7frames == true) run++;
+                        if (frameCounter == 7) run++;
+                    }
+                }
+                else if (run == 3)
+                {
+                    // steam animation
+                }
+                else
+                {
+                    Debug.Log("Wrong run value!");
+                    store.startAnimation = false;
+                    initial = false;
+                }
+            }
         }
+    }
+
+    void IncrementAnimation()
+    {
+        animationSprite[activeObject++].SetActive(false);
+        animationSprite[activeObject].SetActive(true);
     }
 }
