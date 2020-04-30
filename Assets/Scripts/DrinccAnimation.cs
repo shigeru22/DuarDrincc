@@ -7,6 +7,7 @@ public class DrinccAnimation : MonoBehaviour
 {
     public GameObject mainObject; // set to DrinccObject
     public GameObject[] animationSprite; // set to 8 and set elements to each Drincc-* object
+    public Animator steam; // set to SteamAnimation
 
     MenuSelection store;
 
