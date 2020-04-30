@@ -7,7 +7,8 @@ public class DrinccAnimation : MonoBehaviour
 {
     public GameObject mainObject; // set to DrinccObject
     public GameObject[] animationSprite; // set to 8 and set elements to each Drincc-* object
-    public Animator steam; // set to SteamAnimation
+    public GameObject steam; // set to SteamAnimation
+    public Button door; // set to Door
 
     MenuSelection store;
 
@@ -19,6 +20,7 @@ public class DrinccAnimation : MonoBehaviour
     string targetPath;
     bool initial;
     bool only7frames;
+    bool doorClickable;
 
     int run;
     float time;
@@ -28,6 +30,8 @@ public class DrinccAnimation : MonoBehaviour
     void Start()
     {
         store = GameObject.FindGameObjectWithTag("SelectedStore").GetComponent<MenuSelection>();
+
+        door.onClick.AddListener(TakeDrincc);
 
         // for file access
         flavors = new string[8]{ "Chocolate", "Milk", "Strawberry", "Blueberry", "GreenTea", "Mint", "Lemon", "Coffee" };
@@ -112,7 +116,13 @@ public class DrinccAnimation : MonoBehaviour
                 }
                 else if (run == 3)
                 {
-                    // steam animation
+                    if (steam.activeSelf == false)
+                    {
+                        steam.SetActive(true);
+                        steam.GetComponent<Animator>().SetTrigger("runAnimation");
+
+                        door.interactable = true;
+                    }
                 }
                 else
                 {
@@ -128,5 +138,14 @@ public class DrinccAnimation : MonoBehaviour
     {
         animationSprite[activeObject++].SetActive(false);
         animationSprite[activeObject].SetActive(true);
+    }
+
+    void TakeDrincc()
+    {
+        steam.GetComponent<Animator>().SetTrigger("glassClicked");
+        mainObject.SetActive(false);
+
+        door.interactable = false;
+        run++;
     }
 }
