@@ -1501,6 +1501,7 @@ GameObject:
   - component: {fileID: 303212167}
   - component: {fileID: 303212166}
   - component: {fileID: 303212168}
+  - component: {fileID: 303212169}
   m_Layer: 0
   m_Name: InsertMoney
   m_TagString: Untagged
@@ -1578,6 +1579,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thisPage: {fileID: 303212164}
   nextPage: {fileID: 819375447}
+--- !u!114 &303212169
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 303212164}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ab7e5ce09e114044a042ca280e0afa1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &305779467
 GameObject:
   m_ObjectHideFlags: 0
