@@ -6,6 +6,7 @@ TagManager:
   tags:
   - SelectedStore
   - UpdateTrigger
+  - DrinccStorage
   layers:
   - Default
   - TransparentFX
