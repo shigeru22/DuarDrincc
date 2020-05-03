@@ -6,6 +6,8 @@ using UnityEngine.UI;
 public class ToppingSelect : MonoBehaviour
 {
     public Button[] toppings; // set size to 7 and follow MenuSelection.cs for toppings' order
+    public GameObject[] soldOuts; // set size to 6 and add SoldOutButton2-* in incremental order
+
     public Button backButton;
 
     public GameObject prevPage; // set to TempSelect
@@ -13,12 +15,20 @@ public class ToppingSelect : MonoBehaviour
     public GameObject nextPage; // set to Confirmation
 
     MenuSelection store;
+    DrinccStorage storage;
+
+    [System.NonSerialized]
+    public bool runOnce = false; // so update part won't keep looping
+    [System.NonSerialized]
+    public bool tempClicked = false; // whether temperature buttons are clicked
 
     void Start()
     {
         // find gameobject with tag "SelectedStore", which is Menus, and access this component
         store = GameObject.FindGameObjectWithTag("SelectedStore").GetComponent<MenuSelection>();
-        
+        // same for "DrinccStorage"
+        storage = GameObject.FindGameObjectWithTag("DrinccStorage").GetComponent<DrinccStorage>();
+
         try
         {
             backButton.onClick.AddListener(BackPageClick); // this causes an unknown error (not set to an object), but still works
@@ -40,6 +50,14 @@ public class ToppingSelect : MonoBehaviour
         }
     }
 
+    void Update()
+    {
+        if(tempClicked == true)
+        {
+            SoldOutUpdate();
+        }
+    }
+
     void ToppingClick(int idx)
     {
         store.selectedTopping = idx;
@@ -52,5 +70,24 @@ public class ToppingSelect : MonoBehaviour
     {
         thisPage.SetActive(false);
         prevPage.SetActive(true);
+    }
+
+    void SoldOutUpdate()
+    {
+        for (int i = 0; i < toppings.Length; i++)
+        {
+            if (storage.topping[i] == 0)
+            {
+                toppings[i].interactable = false;
+                if(i != 0) soldOuts[i - 1].SetActive(true);
+            }
+            else
+            {
+                toppings[i].interactable = true;
+                if(i != 0) soldOuts[i - 1].SetActive(false);
+            }
+        }
+
+        tempClicked = false;
     }
 }

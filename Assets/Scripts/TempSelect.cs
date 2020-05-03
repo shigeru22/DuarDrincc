@@ -34,6 +34,8 @@ public class TempSelect : MonoBehaviour
     void TempClick(int idx)
     {
         store.selectedTemp = idx;
+        nextPage.GetComponent<ToppingSelect>().tempClicked = true; // change tempClicked on ToppingSelect.cs to true
+
         thisPage.SetActive(false); // hide this page
         nextPage.SetActive(true); // and show next page
     }
