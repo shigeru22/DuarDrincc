@@ -24,12 +24,14 @@ public class ConfirmUpdate : MonoBehaviour
     public GameObject prevPage;
 
     MenuSelection store;
+    DrinccStorage storage;
     int price;
     public bool update;
 
     void Start()
     {
         store = GameObject.FindGameObjectWithTag("SelectedStore").GetComponent<MenuSelection>();
+        storage = GameObject.FindGameObjectWithTag("DrinccStorage").GetComponent<DrinccStorage>();
 
         backButton.onClick.AddListener(BackPageClick);
         buyButton.onClick.AddListener(StartProcess);
@@ -133,6 +135,10 @@ public class ConfirmUpdate : MonoBehaviour
 
     void StartProcess()
     {
+        // decrement selected flavor and topping
+        storage.flavors[store.selectedFlavor]--;
+        storage.topping[store.selectedTopping]--;
+
         store.startAnimation = true;
     }
 }
