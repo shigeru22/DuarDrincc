@@ -9,6 +9,13 @@ public class DrinccAnimation : MonoBehaviour
     public GameObject[] animationSprite; // set to 8 and set elements to each Drincc-* object
     public GameObject steam; // set to SteamAnimation
     public Button door; // set to Door
+    public GameObject change; // set to Change
+    public Button changeHolder; // set to ChangePlaceholder
+
+    public GameObject processing;
+    public GameObject takeDrincc;
+    public GameObject takeChange;
+    public GameObject firstPage;
 
     MenuSelection store;
 
@@ -32,6 +39,7 @@ public class DrinccAnimation : MonoBehaviour
         store = GameObject.FindGameObjectWithTag("SelectedStore").GetComponent<MenuSelection>();
 
         door.onClick.AddListener(TakeDrincc);
+        changeHolder.onClick.AddListener(TakeChange);
 
         // for file access
         flavors = new string[8]{ "Chocolate", "Milk", "Strawberry", "Blueberry", "GreenTea", "Mint", "Lemon", "Coffee" };
@@ -75,6 +83,10 @@ public class DrinccAnimation : MonoBehaviour
                     if (only7frames == true && i == 6) break;
                 }
 
+                processing.SetActive(true);
+                takeChange.SetActive(false);
+
+                run = 0;
                 initial = true;
             }
             else
@@ -116,13 +128,37 @@ public class DrinccAnimation : MonoBehaviour
                 }
                 else if (run == 3)
                 {
-                    if (steam.activeSelf == false)
+                    if (store.selectedTemp == 0)
                     {
                         steam.SetActive(true);
                         steam.GetComponent<Animator>().SetTrigger("runAnimation");
-
-                        door.interactable = true;
                     }
+
+                    processing.SetActive(false);
+                    takeDrincc.SetActive(true);
+
+                    door.interactable = true;
+                    run++;
+                }
+                // 4 skipped in order to wait for door click
+                else if(run == 5)
+                {
+                    processing.SetActive(false);
+                    takeChange.SetActive(true);
+
+                    // change animation
+                    store.insertedMoney = 0;
+
+                    run++;
+                }
+                // 6 skipped in order to wait for change click
+                else if(run == 7)
+                {
+                    store.startAnimation = false;
+                    initial = false;
+
+                    takeChange.SetActive(false);
+                    firstPage.SetActive(true);
                 }
                 else
                 {
@@ -142,10 +178,17 @@ public class DrinccAnimation : MonoBehaviour
 
     void TakeDrincc()
     {
-        steam.GetComponent<Animator>().SetTrigger("glassClicked");
+        if (store.selectedTemp == 1) steam.GetComponent<Animator>().SetTrigger("glassClicked");
         mainObject.SetActive(false);
 
         door.interactable = false;
+        run++;
+    }
+
+    void TakeChange()
+    {
+        change.SetActive(false);
+        changeHolder.interactable = false;
         run++;
     }
 }

@@ -1415,7 +1415,7 @@ MonoBehaviour:
   backButton: {fileID: 489646319}
   thisPage: {fileID: 200359653}
   prevPage: {fileID: 81904938}
-  update: 0
+  nextScreen: {fileID: 1443340255}
 --- !u!1 &232242271
 GameObject:
   m_ObjectHideFlags: 0
@@ -9831,6 +9831,12 @@ MonoBehaviour:
   - {fileID: 1518795882}
   steam: {fileID: 773208723}
   door: {fileID: 300138954}
+  change: {fileID: 0}
+  changeHolder: {fileID: 0}
+  processing: {fileID: 740681105}
+  takeDrincc: {fileID: 0}
+  takeChange: {fileID: 1444208949}
+  firstPage: {fileID: 303212164}
 --- !u!1 &1578759035
 GameObject:
   m_ObjectHideFlags: 0

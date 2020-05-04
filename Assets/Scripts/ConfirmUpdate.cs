@@ -22,10 +22,13 @@ public class ConfirmUpdate : MonoBehaviour
     public Button backButton;
     public GameObject thisPage;
     public GameObject prevPage;
+    public GameObject nextScreen;
 
     MenuSelection store;
     DrinccStorage storage;
     int price;
+
+    [System.NonSerialized]
     public bool update;
 
     void Start()
@@ -138,6 +141,9 @@ public class ConfirmUpdate : MonoBehaviour
         // decrement selected flavor and topping
         storage.flavors[store.selectedFlavor]--;
         storage.topping[store.selectedTopping]--;
+
+        thisPage.SetActive(false);
+        nextScreen.SetActive(true);
 
         store.startAnimation = true;
     }
