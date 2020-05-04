@@ -149,6 +149,7 @@ public class DrinccAnimation : MonoBehaviour
                     // change animation
                     store.insertedMoney = 0;
 
+                    changeHolder.interactable = true;
                     run++;
                 }
                 // 6 skipped in order to wait for change click
