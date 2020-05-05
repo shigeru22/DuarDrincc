@@ -66,15 +66,12 @@ public class DrinccAnimation : MonoBehaviour
             if(initial == false)
             {
                 targetPath = spritePath + flavors[store.selectedFlavor] + "/" + toppings[store.selectedTopping];
-                // Debug.Log(targetPath);
 
                 if (store.selectedTopping >= 2) // if selected topping is not ice or no topping
                 {
                     targetPath += "/" + temps[store.selectedTemp];
                 }
                 targetPath += "/";
-
-                // Debug.Log(targetPath);
 
                 // hide every drincc objects
                 for (int i = 0; i < animationSprite.Length; i++) animationSprite[i].SetActive(false);
@@ -84,7 +81,6 @@ public class DrinccAnimation : MonoBehaviour
                 for (int i = 0; i < animationSprite.Length; i++)
                 {
                     string target = targetPath + flavors[store.selectedFlavor].ToLower() + "-" + i;
-                    // Debug.Log(target);
                     animationSprite[i].GetComponent<Image>().sprite = Resources.Load<Sprite>(target);
 
                     if (only7frames == true && i == 6) break;

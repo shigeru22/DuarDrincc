@@ -57,9 +57,6 @@ public class ConfirmUpdate : MonoBehaviour
 
     void PageUpdate()
     {
-        // Debug.Log("Flavor: " + store.selectedFlavor + ", temp: " + store.selectedTemp + ", topping: " + store.selectedTopping);
-        // Debug.Log("Balance: " + store.insertedMoney.ToString("#,.##0"));
-
         remainingBalance.text = store.insertedMoney.ToString("#,.##0");
 
         // flavor image and info
