@@ -5,6 +5,10 @@ using UnityEngine.UI;
 
 public class ConfirmUpdate : MonoBehaviour
 {
+
+    // Game Screen
+    public Animator cameraAnimator;
+
     // public Button[] previousButtons;
     public Button buyButton;
     public GameObject insuffientBalance;
@@ -144,8 +148,15 @@ public class ConfirmUpdate : MonoBehaviour
         storage.topping[store.selectedTopping]--;
 
         thisPage.SetActive(false);
+        zoomOut();
         nextScreen.SetActive(true);
 
         store.startAnimation = true;
+    }
+
+    void zoomOut()
+    {
+        cameraAnimator.ResetTrigger("ZoomIn");
+        cameraAnimator.SetTrigger("ZoomOut");
     }
 }

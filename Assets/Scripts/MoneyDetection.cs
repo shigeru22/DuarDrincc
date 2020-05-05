@@ -6,7 +6,8 @@ public class MoneyDetection : MonoBehaviour
 {
     public GameObject thisPage;
     public GameObject nextPage;
-
+    public GameObject Screen;
+    public Animator cameraAnimator;
     MenuSelection store;
 
     void Start()
@@ -20,8 +21,15 @@ public class MoneyDetection : MonoBehaviour
         // show next page if money has been inserted (higher than 0)
         if(store.insertedMoney > 0)
         {
+            zoomIn();
             thisPage.SetActive(false);
             nextPage.SetActive(true);
         }
+    }
+
+    void zoomIn()
+    {
+        cameraAnimator.ResetTrigger("ZoomOut");
+        cameraAnimator.SetTrigger("ZoomIn");
     }
 }
