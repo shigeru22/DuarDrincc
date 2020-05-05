@@ -7,11 +7,15 @@ public class DrinccAnimation : MonoBehaviour
 {
     public GameObject mainObject; // set to DrinccObject
     public GameObject[] animationSprite; // set to 8 and set elements to each Drincc-* object
+    public GameObject[] flavorInfo;
+    public GameObject[] tempInfo;
+    public GameObject[] toppingInfo;
     public GameObject steam; // set to SteamAnimation
     public Button door; // set to Door
     public GameObject change; // set to Change
     public Button changeHolder; // set to ChangePlaceholder
 
+    public GameObject thisPage;
     public GameObject processing;
     public GameObject takeDrincc;
     public GameObject takeChange;
@@ -81,6 +85,25 @@ public class DrinccAnimation : MonoBehaviour
                     animationSprite[i].GetComponent<Image>().sprite = (Sprite)UnityEditor.AssetDatabase.LoadAssetAtPath(target, typeof(Sprite));
 
                     if (only7frames == true && i == 6) break;
+                }
+
+                // show only selected menus
+                for(int i = 0; i < flavorInfo.Length; i++)
+                {
+                    if (i == store.selectedFlavor) flavorInfo[i].SetActive(true);
+                    else flavorInfo[i].SetActive(false);
+                }
+
+                for(int i = 0; i < tempInfo.Length; i++)
+                {
+                    if (i == store.selectedTemp) tempInfo[i].SetActive(true);
+                    else tempInfo[i].SetActive(false);
+                }
+
+                for(int i = 0; i < toppingInfo.Length; i++)
+                {
+                    if (i == store.selectedTopping) toppingInfo[i].SetActive(true);
+                    else toppingInfo[i].SetActive(false);
                 }
 
                 processing.SetActive(true);
@@ -159,6 +182,7 @@ public class DrinccAnimation : MonoBehaviour
                     initial = false;
 
                     takeChange.SetActive(false);
+                    thisPage.SetActive(false);
                     firstPage.SetActive(true);
                 }
                 else if(run == 4 || run == 6)
@@ -185,6 +209,7 @@ public class DrinccAnimation : MonoBehaviour
     {
         if (store.selectedTemp == 1) steam.GetComponent<Animator>().SetTrigger("glassClicked");
         mainObject.SetActive(false);
+        takeDrincc.SetActive(false);
 
         door.interactable = false;
         run++;
