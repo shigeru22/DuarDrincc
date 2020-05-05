@@ -161,6 +161,10 @@ public class DrinccAnimation : MonoBehaviour
                     takeChange.SetActive(false);
                     firstPage.SetActive(true);
                 }
+                else if(run == 4 || run == 6)
+                {
+                    // do nothing
+                }
                 else
                 {
                     Debug.Log("Wrong run value!");
