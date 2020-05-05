@@ -52,11 +52,6 @@ public class DrinccAnimation : MonoBehaviour
 
         initial = false;
         only7frames = false;
-
-        run = 0;
-        time = 0;
-        activeObject = 0;
-        frameCounter = 0;
     }
 
     void Update()
@@ -76,6 +71,9 @@ public class DrinccAnimation : MonoBehaviour
                 targetPath += "/";
 
                 Debug.Log(targetPath);
+
+                // hide every drincc objects
+                for (int i = 0; i < animationSprite.Length; i++) animationSprite[i].SetActive(false);
 
                 // small note, ice cube, boba, and no topping only uses 7 frames
                 if (store.selectedTopping < 3) only7frames = true;
@@ -109,19 +107,18 @@ public class DrinccAnimation : MonoBehaviour
                 processing.SetActive(true);
                 takeChange.SetActive(false);
 
+                frameCounter = 0;
                 run = 0;
                 initial = true;
+                time = 0;
+                activeObject = 0;
             }
             else
             {
                 if (run == 0)
                 {
                     mainObject.SetActive(true);
-                    for (int i = 0; i < animationSprite.Length; i++)
-                    {
-                        if (i == 0) animationSprite[i].SetActive(true);
-                        else animationSprite[i].SetActive(false);
-                    }
+                    for (int i = 1; i < animationSprite.Length; i++) animationSprite[i].SetActive(false);
 
                     run++;
                 }

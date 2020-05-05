@@ -362,6 +362,8 @@ GameObject:
   m_Component:
   - component: {fileID: 81765971}
   - component: {fileID: 81765972}
+  - component: {fileID: 81765974}
+  - component: {fileID: 81765973}
   m_Layer: 0
   m_Name: ChangePlaceholder
   m_TagString: Untagged
@@ -427,10 +429,46 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 0}
+  m_TargetGraphic: {fileID: 81765973}
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &81765973
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 81765970}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &81765974
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 81765970}
+  m_CullTransparentMesh: 0
 --- !u!1 &81904938
 GameObject:
   m_ObjectHideFlags: 0
@@ -2154,7 +2192,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &303212165
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9452,7 +9490,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1443340256
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9988,10 +10026,31 @@ MonoBehaviour:
   - {fileID: 1990765611}
   - {fileID: 652653265}
   - {fileID: 1518795882}
+  flavorInfo:
+  - {fileID: 146559822}
+  - {fileID: 469120497}
+  - {fileID: 799262452}
+  - {fileID: 232242271}
+  - {fileID: 82493639}
+  - {fileID: 317438332}
+  - {fileID: 623270437}
+  - {fileID: 1578759035}
+  tempInfo:
+  - {fileID: 263285882}
+  - {fileID: 1085693092}
+  toppingInfo:
+  - {fileID: 864013558}
+  - {fileID: 167708451}
+  - {fileID: 1479995029}
+  - {fileID: 1792822120}
+  - {fileID: 2045696233}
+  - {fileID: 527599184}
+  - {fileID: 133899535}
   steam: {fileID: 773208723}
   door: {fileID: 300138954}
-  change: {fileID: 0}
-  changeHolder: {fileID: 0}
+  change: {fileID: 2038718746}
+  changeHolder: {fileID: 81765972}
+  thisPage: {fileID: 1443340255}
   processing: {fileID: 740681105}
   takeDrincc: {fileID: 211556309}
   takeChange: {fileID: 1444208949}
