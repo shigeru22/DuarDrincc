@@ -22,6 +22,9 @@ public class DrinccAnimation : MonoBehaviour
     public GameObject takeChange;
     public GameObject firstPage;
 
+    public Animator change5k;
+    public Animator change10k;
+
     MenuSelection store;
 
     string[] flavors;
@@ -170,6 +173,9 @@ public class DrinccAnimation : MonoBehaviour
                     takeChange.SetActive(true);
 
                     // change animation
+                    if (store.insertedMoney < 10000) change5k.SetTrigger("Run");
+                    else change10k.SetTrigger("Run");
+
                     store.insertedMoney = 0;
 
                     changeHolder.interactable = true;
@@ -212,11 +218,15 @@ public class DrinccAnimation : MonoBehaviour
         takeDrincc.SetActive(false);
 
         door.interactable = false;
-        run++;
+
+        if (store.insertedMoney != 0) run++;
+        else run = 7;
     }
 
     void TakeChange()
     {
+        if (store.insertedMoney < 10000) change5k.SetTrigger("Click");
+        else change10k.SetTrigger("Click");
         change.SetActive(false);
         changeHolder.interactable = false;
         run++;

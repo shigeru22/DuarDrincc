@@ -138,7 +138,8 @@ public class ConfirmUpdate : MonoBehaviour
 
     void StartProcess()
     {
-        // decrement selected flavor and topping
+        // decrement inserted money, selected flavor and topping
+        store.insertedMoney -= price;
         storage.flavors[store.selectedFlavor]--;
         storage.topping[store.selectedTopping]--;
 
