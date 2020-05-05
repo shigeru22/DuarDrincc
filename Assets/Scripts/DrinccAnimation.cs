@@ -118,6 +118,7 @@ public class DrinccAnimation : MonoBehaviour
                 if (run == 0)
                 {
                     mainObject.SetActive(true);
+                    animationSprite[0].SetActive(true);
                     for (int i = 1; i < animationSprite.Length; i++) animationSprite[i].SetActive(false);
 
                     run++;
