@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -27,7 +28,7 @@ public class DrinccAnimation : MonoBehaviour
     string[] temps;
     string[] toppings;
 
-    string spritePath = "Assets/Sprites/Animation/Drincc/";
+    string spritePath = "Animation/Drincc/";
     string targetPath;
     bool initial;
     bool only7frames;
@@ -79,8 +80,9 @@ public class DrinccAnimation : MonoBehaviour
                 if (store.selectedTopping < 3) only7frames = true;
                 for (int i = 0; i < animationSprite.Length; i++)
                 {
-                    string target = targetPath + flavors[store.selectedFlavor].ToLower() + "-" + i + ".png";
-                    animationSprite[i].GetComponent<Image>().sprite = (Sprite)UnityEditor.AssetDatabase.LoadAssetAtPath(target, typeof(Sprite));
+                    string target = targetPath + flavors[store.selectedFlavor].ToLower() + "-" + i;
+                    Debug.Log(target);
+                    animationSprite[i].GetComponent<Image>().sprite = Resources.Load<Sprite>(target);
 
                     if (only7frames == true && i == 6) break;
                 }
