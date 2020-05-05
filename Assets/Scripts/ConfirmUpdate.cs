@@ -30,6 +30,7 @@ public class ConfirmUpdate : MonoBehaviour
 
     MenuSelection store;
     DrinccStorage storage;
+    AdminFunctions counters;
     int price;
 
     [System.NonSerialized]
@@ -39,6 +40,7 @@ public class ConfirmUpdate : MonoBehaviour
     {
         store = GameObject.FindGameObjectWithTag("SelectedStore").GetComponent<MenuSelection>();
         storage = GameObject.FindGameObjectWithTag("DrinccStorage").GetComponent<DrinccStorage>();
+        counters = GameObject.FindGameObjectWithTag("CounterStore").GetComponent<AdminFunctions>();
 
         backButton.onClick.AddListener(BackPageClick);
         buyButton.onClick.AddListener(StartProcess);
@@ -145,7 +147,12 @@ public class ConfirmUpdate : MonoBehaviour
         // decrement inserted money, selected flavor and topping
         store.insertedMoney -= price;
         storage.flavors[store.selectedFlavor]--;
-        storage.topping[store.selectedTopping]--;
+        if (store.selectedTopping != 0)
+        {
+            storage.topping[store.selectedTopping]--;
+        }
+
+        counters.update = true;
 
         thisPage.SetActive(false);
         zoomOut();

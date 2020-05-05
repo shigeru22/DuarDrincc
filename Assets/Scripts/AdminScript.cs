@@ -1,12 +1,22 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class AdminScript : MonoBehaviour
 {
     private string[] konamiCode = { "UpArrow", "UpArrow", "DownArrow", "DownArrow", "LeftArrow", "RightArrow", "LeftArrow", "RightArrow", "B", "A", "Return" };
     private int currPos = 0;
- 
+
+    public GameObject thisPage;
+    public GameObject adminMenu;
+    public Button adminBack;
+
+    void Start()
+    {
+        adminBack.onClick.AddListener(CloseAdminMenu);
+    }
+
     void OnGUI()
     {
         Event e = Event.current;
@@ -18,9 +28,9 @@ public class AdminScript : MonoBehaviour
         if (s.ToString() == konamiCode[currPos])
         {
             currPos++;
-            if ((currPos + 1) > konamiCode.Length)
+            if (currPos == konamiCode.Length)
             {
-                RunEasterEgg();
+                OpenAdminMenu();
                 currPos = 0;
             }
         }
@@ -31,8 +41,15 @@ public class AdminScript : MonoBehaviour
         }
     }
 
-    void RunEasterEgg()
+    void OpenAdminMenu()
     {
-        Debug.Log("Hello, world!");
+        thisPage.SetActive(false);
+        adminMenu.SetActive(true);
+    }
+
+    void CloseAdminMenu()
+    {
+        adminMenu.SetActive(false);
+        thisPage.SetActive(true);
     }
 }
