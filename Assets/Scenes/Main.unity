@@ -15628,8 +15628,8 @@ MonoBehaviour:
   takeDrincc: {fileID: 211556309}
   takeChange: {fileID: 1444208949}
   firstPage: {fileID: 303212164}
-  change5k: {fileID: 0}
-  change10k: {fileID: 0}
+  change5k: {fileID: 1556625327}
+  change10k: {fileID: 1468261330}
 --- !u!1 &1556625325
 GameObject:
   m_ObjectHideFlags: 0
