@@ -1953,6 +1953,7 @@ MonoBehaviour:
   thisPage: {fileID: 200359653}
   prevPage: {fileID: 81904938}
   nextScreen: {fileID: 1443340255}
+  counters: {fileID: 2137030124}
 --- !u!1 &201165813
 GameObject:
   m_ObjectHideFlags: 0
@@ -21469,7 +21470,7 @@ GameObject:
   - component: {fileID: 2137030124}
   m_Layer: 0
   m_Name: Admin
-  m_TagString: Untagged
+  m_TagString: CounterStore
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

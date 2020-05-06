@@ -30,7 +30,7 @@ public class ConfirmUpdate : MonoBehaviour
 
     MenuSelection store;
     DrinccStorage storage;
-    AdminFunctions counters;
+    public AdminFunctions counters;
     int price;
 
     [System.NonSerialized]
@@ -40,7 +40,6 @@ public class ConfirmUpdate : MonoBehaviour
     {
         store = GameObject.FindGameObjectWithTag("SelectedStore").GetComponent<MenuSelection>();
         storage = GameObject.FindGameObjectWithTag("DrinccStorage").GetComponent<DrinccStorage>();
-        counters = GameObject.FindGameObjectWithTag("CounterStore").GetComponent<AdminFunctions>();
 
         backButton.onClick.AddListener(BackPageClick);
         buyButton.onClick.AddListener(StartProcess);
