@@ -209,7 +209,11 @@ public class DrinccAnimation : MonoBehaviour
 
     void TakeDrincc()
     {
-        if (store.selectedTemp == 1) steam.GetComponent<Animator>().SetTrigger("glassClicked");
+        if (store.selectedTemp == 0)
+        {
+            steam.GetComponent<Animator>().SetTrigger("glassClicked");
+            steam.SetActive(false);
+        }
         mainObject.SetActive(false);
         takeDrincc.SetActive(false);
 
