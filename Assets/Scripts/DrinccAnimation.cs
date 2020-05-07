@@ -167,6 +167,7 @@ public class DrinccAnimation : MonoBehaviour
                 {
                     processing.SetActive(false);
                     takeChange.SetActive(true);
+                    change.SetActive(true);
 
                     // change animation
                     if (store.insertedMoney < 10000) change5k.SetTrigger("Run");
