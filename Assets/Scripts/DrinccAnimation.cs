@@ -78,6 +78,7 @@ public class DrinccAnimation : MonoBehaviour
 
                 // small note, ice cube, boba, and no topping only uses 7 frames
                 if (store.selectedTopping < 3) only7frames = true;
+                else only7frames = false;
                 for (int i = 0; i < animationSprite.Length; i++)
                 {
                     string target = targetPath + flavors[store.selectedFlavor].ToLower() + "-" + i;
