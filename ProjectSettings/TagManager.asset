@@ -8,6 +8,7 @@ TagManager:
   - UpdateTrigger
   - DrinccStorage
   - CounterStore
+  - CameraTrigger
   layers:
   - Default
   - TransparentFX

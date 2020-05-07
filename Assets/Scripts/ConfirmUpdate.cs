@@ -5,10 +5,6 @@ using UnityEngine.UI;
 
 public class ConfirmUpdate : MonoBehaviour
 {
-
-    // Game Screen
-    public Animator cameraAnimator;
-
     // public Button[] previousButtons;
     public Button buyButton;
     public GameObject insuffientBalance;
@@ -30,6 +26,7 @@ public class ConfirmUpdate : MonoBehaviour
 
     MenuSelection store;
     DrinccStorage storage;
+    CameraControl cameraAnimator;
     public AdminFunctions counters;
     int price;
 
@@ -40,6 +37,7 @@ public class ConfirmUpdate : MonoBehaviour
     {
         store = GameObject.FindGameObjectWithTag("SelectedStore").GetComponent<MenuSelection>();
         storage = GameObject.FindGameObjectWithTag("DrinccStorage").GetComponent<DrinccStorage>();
+        cameraAnimator = GameObject.FindGameObjectWithTag("CameraTrigger").GetComponent<CameraControl>();
 
         backButton.onClick.AddListener(BackPageClick);
         buyButton.onClick.AddListener(StartProcess);
@@ -149,17 +147,11 @@ public class ConfirmUpdate : MonoBehaviour
         }
 
         counters.update = true;
+        cameraAnimator.trigger = true;
 
         thisPage.SetActive(false);
-        zoomOut();
         nextScreen.SetActive(true);
 
         store.startAnimation = true;
-    }
-
-    void zoomOut()
-    {
-        cameraAnimator.ResetTrigger("ZoomIn");
-        cameraAnimator.SetTrigger("ZoomOut");
     }
 }

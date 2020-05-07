@@ -1914,7 +1914,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6efd266bde68c3748ba5eb47a97a5587, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cameraAnimator: {fileID: 815746792}
   buyButton: {fileID: 2103777269}
   insuffientBalance: {fileID: 985468450}
   flavorImg:
@@ -3384,7 +3383,6 @@ MonoBehaviour:
   thisPage: {fileID: 303212164}
   nextPage: {fileID: 819375447}
   Screen: {fileID: 815746788}
-  cameraAnimator: {fileID: 815746792}
 --- !u!114 &303212169
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9182,9 +9180,10 @@ GameObject:
   - component: {fileID: 815746791}
   - component: {fileID: 815746790}
   - component: {fileID: 815746792}
+  - component: {fileID: 815746793}
   m_Layer: 0
   m_Name: Panel
-  m_TagString: Untagged
+  m_TagString: CameraTrigger
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9266,6 +9265,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &815746793
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 815746788}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13f1b8a334684124db065cdbf8053a8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &818775707
 GameObject:
   m_ObjectHideFlags: 0

@@ -7,13 +7,15 @@ public class MoneyDetection : MonoBehaviour
     public GameObject thisPage;
     public GameObject nextPage;
     public GameObject Screen;
-    public Animator cameraAnimator;
+
     MenuSelection store;
+    CameraControl cameraAnimator;
 
     void Start()
     {
         // find gameobject with tag "SelectedStore", which is Menus, and access this component
         store = GameObject.FindGameObjectWithTag("SelectedStore").GetComponent<MenuSelection>();
+        cameraAnimator = GameObject.FindGameObjectWithTag("CameraTrigger").GetComponent<CameraControl>();
     }
 
     void Update()
@@ -21,15 +23,10 @@ public class MoneyDetection : MonoBehaviour
         // show next page if money has been inserted (higher than 0)
         if(store.insertedMoney > 0)
         {
-            zoomIn();
+            cameraAnimator.trigger = true;
+
             thisPage.SetActive(false);
             nextPage.SetActive(true);
         }
-    }
-
-    void zoomIn()
-    {
-        cameraAnimator.ResetTrigger("ZoomOut");
-        cameraAnimator.SetTrigger("ZoomIn");
     }
 }
