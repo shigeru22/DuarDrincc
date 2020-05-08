@@ -41,4 +41,9 @@ public class CameraControl : MonoBehaviour
             trigger = false;
         }
     }
+
+    public bool getZoomStatus()
+    {
+        return this.zoomed;
+    }
 }

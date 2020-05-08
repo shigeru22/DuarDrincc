@@ -23,7 +23,7 @@ public class MoneyDetection : MonoBehaviour
         // show next page if money has been inserted (higher than 0)
         if(store.insertedMoney > 0)
         {
-            cameraAnimator.trigger = true;
+            if(cameraAnimator.getZoomStatus() == false) cameraAnimator.trigger = true;
 
             thisPage.SetActive(false);
             nextPage.SetActive(true);

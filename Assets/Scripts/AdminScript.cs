@@ -12,8 +12,14 @@ public class AdminScript : MonoBehaviour
     public GameObject adminMenu;
     public Button adminBack;
 
+    MenuSelection store;
+    CameraControl cameraAnimator;
+
     void Start()
     {
+        store = GameObject.FindGameObjectWithTag("SelectedStore").GetComponent<MenuSelection>();
+        cameraAnimator = GameObject.FindGameObjectWithTag("CameraTrigger").GetComponent<CameraControl>();
+
         adminBack.onClick.AddListener(CloseAdminMenu);
     }
 
@@ -43,12 +49,15 @@ public class AdminScript : MonoBehaviour
 
     void OpenAdminMenu()
     {
+        cameraAnimator.trigger = true;
+
         thisPage.SetActive(false);
         adminMenu.SetActive(true);
     }
 
     void CloseAdminMenu()
     {
+        if (store.insertedMoney == 0) cameraAnimator.trigger = true;
         adminMenu.SetActive(false);
         thisPage.SetActive(true);
     }
